@@ -1,0 +1,6 @@
+{
+  "name": "Nusantara Neon Game Studio",
+  "description": "Studio Game AAA Kelas Dunia dengan Sentuhan Budaya Nusantara Modern, Visual Neon Sinematik, dan Pengalaman Interaktif.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

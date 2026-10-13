@@ -1,0 +1,151 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-void: #05060F;
+    --bg-base: #0A0B1A;
+    --bg-surface: #11132B;
+    --bg-elevated: #1A1D3F;
+    --primary: #8B5CF6;
+    --primary-glow: #A78BFA;
+    --secondary: #22D3EE;
+    --accent: #FF3D8B;
+    --gold: #FBBF24;
+    --success: #34D399;
+    --danger: #F43F5E;
+  }
+
+  body {
+    background-color: var(--bg-void);
+    color: #F8FAFC;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Orbitron', sans-serif;
+  }
+
+  code, pre, .font-mono, .hud-label {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Angular HUD Clip Paths & Polygon Frames */
+.hud-cut-corner {
+  clip-path: polygon(
+    0 0, 
+    calc(100% - 16px) 0, 
+    100% 16px, 
+    100% 100%, 
+    16px 100%, 
+    0 calc(100% - 16px)
+  );
+}
+
+.hud-cut-top-right {
+  clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%);
+}
+
+.hud-cut-bottom-left {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+}
+
+/* Glassmorphism 2.0 */
+.glass-panel {
+  background: rgba(17, 19, 43, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.glass-panel-hover:hover {
+  border-color: rgba(34, 211, 238, 0.5);
+  box-shadow: 0 0 25px rgba(139, 92, 246, 0.25);
+}
+
+/* Rarity Shimmer & Glow Effects */
+.rarity-legendary {
+  border: 1px solid rgba(251, 191, 36, 0.6);
+  box-shadow: 0 0 30px rgba(251, 191, 36, 0.25);
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.1) 0%, rgba(17, 19, 43, 0.9) 100%);
+}
+
+.rarity-epic {
+  border: 1px solid rgba(255, 61, 139, 0.5);
+  box-shadow: 0 0 25px rgba(255, 61, 139, 0.2);
+  background: linear-gradient(135deg, rgba(255, 61, 139, 0.08) 0%, rgba(17, 19, 43, 0.9) 100%);
+}
+
+.rarity-rare {
+  border: 1px solid rgba(34, 211, 238, 0.4);
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.15);
+  background: linear-gradient(135deg, rgba(34, 211, 238, 0.06) 0%, rgba(17, 19, 43, 0.9) 100%);
+}
+
+/* Batik Geometric Neon Pattern Overlay */
+.batik-overlay {
+  background-image: radial-gradient(rgba(139, 92, 246, 0.15) 1px, transparent 1px),
+                    radial-gradient(rgba(34, 211, 238, 0.1) 1px, rgba(5, 6, 15, 0.95) 1px);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+}
+
+/* Perspective Grid Canvas Pattern */
+.cyber-grid {
+  background-size: 50px 50px;
+  background-image: 
+    linear-gradient(to right, rgba(139, 92, 246, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(139, 92, 246, 0.08) 1px, transparent 1px);
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(1deg); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(1000%); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.scanline-effect::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+  z-index: 20;
+  background-size: 100% 3px, 6px 100%;
+  pointer-events: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #05060F;
+}
+::-webkit-scrollbar-thumb {
+  background: #1A1D3F;
+  border-radius: 4px;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8B5CF6;
+}
